@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import { moveElementsToNewParent } from './util';
 
 const createHintOne = () => {
   const paths = d3.select('.vegaViz1 > svg').selectAll('path');
@@ -393,26 +392,10 @@ const removeAllHints = () => {
     .style('stroke-width', 1);
 };
 
-/** FOR LEGEND BOXES NECESSARY */
-const makeLegendBoxes = () => {
-  d3.select('.stepsContainer')
-    .append('fieldset')
-    .attr('id', 'reading')
-    .append('legend')
-    .text('Reading the Chart');
-  d3.select('.stepsContainer')
-    .append('fieldset')
-    .attr('id', 'using')
-    .append('legend')
-    .text('Using the Chart');
 
-  moveElementsToNewParent(['step-0', 'step-1', 'step-2'], 'reading');
-  moveElementsToNewParent(['step-3', 'step-4', 'step-5'], 'using');
-};
 
 export {
   createHintOne,
-  makeLegendBoxes,
   createHintTwo,
   createHintThree,
   createHintFour,

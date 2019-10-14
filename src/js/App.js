@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import parse from 'html-react-parser';
 import VegaChart from './VegaChart';
 import Legend from './Legend';
+import StaticLegend from './components/StaticLegend';
 import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
 import FinishStudy from './components/FinishStudy';
@@ -22,11 +23,13 @@ class App extends Component {
       loading: true, // Used to show the loading indicator of the page
       init: false, // Used to decide if we greet the user or not
       view: CONCRETE, // Decide which Mode we are in or showing for the user
-      mode: 0 // Show at which explain step we are
+      mode: 0, // Show at which explain step we are
+      showAllHints: false
     };
 
     // Bindings here
     this.startMainApp = this.startMainApp.bind(this);
+    this.changeShowAllHints = this.changeShowAllHints.bind(this);
   }
 
   /**
@@ -49,6 +52,14 @@ class App extends Component {
   }
 
   /**
+   * This method can be used in order to toggle the view for all hints.
+   * @param show decides wheter to show all hints or not.
+   */
+  changeShowAllHints(show) {
+    this.setState({ showAllHints: show });
+  }
+
+  /**
    * This method prevents the user from going over too many steps.
    * @param id of the current step we are in
    */
@@ -59,20 +70,8 @@ class App extends Component {
     this.setState({ mode: mode });
   }
 
-  /**
-   * This method is used to catch all the keybord inputs
-   * @param event we can catch and react to
-   */
-  // handleKeyBoardInput(event) {
-  //   if (event.key === '1') this.setState({ mode: 1 });
-  //   if (event.key === '2') this.setState({ mode: 2 });
-  //   if (event.key === '3') this.setState({ mode: 3 });
-  //   if (event.key === '4') this.setState({ mode: 4 });
-  //   if (event.key === '5') this.setState({ mode: 5 });
-  // }
-
   render() {
-    const { mode, view } = this.state;
+    const { mode, view, showAllHints } = this.state;
     // noinspection ThisExpressionReferencesGlobalObjectJS
     return (
       <div>
@@ -91,15 +90,18 @@ class App extends Component {
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
               <Row type="flex" justify="start">
                 <Col md={12} lg={12} xxl={8}>
-                  <h6 class="vizDesc">{parse(VIZ_DESC)}</h6>
+                  <h6 className="vizDesc">{parse(VIZ_DESC)}</h6>
                 </Col>
                 <Col md={12} lg={12} xxl={8} className="pullRight">
-                  <ModeSwitcher mode={mode} />
+                  <ModeSwitcher
+                    mode={mode}
+                    changeShowAllHints={this.changeShowAllHints}
+                  />
                   <Button
                     id="previous"
                     type="primary"
                     onClick={() => this.changeVis(mode - 1)}
-                    disabled={mode === 0}
+                    disabled={mode === 0 || showAllHints}
                   >
                     Previous
                   </Button>
@@ -107,7 +109,7 @@ class App extends Component {
                     id="next"
                     type="primary"
                     onClick={() => this.changeVis(mode + 1)}
-                    disabled={mode >= MAX_HINTS - 1}
+                    disabled={mode >= MAX_HINTS - 1 || showAllHints}
                   >
                     Next
                   </Button>
@@ -128,7 +130,16 @@ class App extends Component {
                   </Row>
                 </Col>
                 <Col md={12} lg={12} xxl={8}>
-                  <Legend mode={mode} view={view} cb={i => this.changeVis(i)} />
+                  <div id="dynamicLegend">
+                    <Legend
+                      mode={mode}
+                      view={view}
+                      cb={i => this.changeVis(i)}
+                    />
+                  </div>
+                  <div id="staticLegend" className="hiddenClass">
+                    <StaticLegend />
+                  </div>
                 </Col>
               </Row>
             </div>

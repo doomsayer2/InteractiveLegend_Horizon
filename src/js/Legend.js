@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import equal from 'fast-deep-equal';
 import StepContent from './components/StepContent';
-import { makeLegendBoxes } from './shared/d3Manipulations';
+import { makeLegendBoxes } from './shared/d3Interaction';
 import { getData, getAllHints } from './shared/DataProvider';
 import '../css/legend.css';
 
@@ -39,7 +39,7 @@ export default class Legend extends Component {
     const { mode } = this.props;
 
     return (
-      <div>
+      <Fragment>
         <Row type="flex" justify="start" style={{ marginTop: 20 + 'px' }}>
           <Steps
             direction="vertical"
@@ -58,7 +58,7 @@ export default class Legend extends Component {
             ))}
           </Steps>
         </Row>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -34,7 +34,19 @@
 /* Other */
 #reading,
 #using {
-  border: 1px dashed #c51b7d;
+  border: 1px solid #595959;
   padding: 2%;
   margin-bottom: 10px;
+}
+
+#reading2,
+#using2 {
+  border: 1px solid #595959;
+  padding: 2%;
+  margin-bottom: 10px;
+}
+
+.hiddenClass {
+  display: none;
+  outline: none;
 }

@@ -93,6 +93,10 @@
     font-size: 0.7em;
 }
 
+.ant-steps-item-title::after {
+    display: none;
+}
+
 /* vega-tooltip library changes */
 td {
     font-size: 0.7rem;
