@@ -6,7 +6,7 @@ import Greeting from './components/Greeting';
 import ModeSwitcher from './components/ModeSwitcher';
 import FinishStudy from './components/FinishStudy';
 import Header from './components/Header';
-import { d3Showcase } from './shared/d3Manipulations';
+import manageHints from './shared/d3Interaction';
 import { LoadingIndicator } from './shared/util';
 import { CONCRETE, MAX_HINTS, VIZ_DESC } from './shared/constants';
 
@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    d3Showcase();
+    manageHints(this.state.mode);
   }
 
   /**
@@ -87,60 +87,47 @@ class App extends Component {
         ) : (
           <Fragment>
             <Header />
+            <Divider />
             <div id="vizHeader" style={{ marginTop: 40 + 'px' }}>
-              {/* <Row type="flex" justify="start">
-                <Col span={24}>
-                  <h1>{VIZ_TITLE}</h1>
-                </Col>
-              </Row> */}
               <Row type="flex" justify="start">
-                <Col span={24}>
-                  <h2>{parse(VIZ_DESC)}</h2>
+                <Col md={12} lg={12} xxl={8}>
+                  <h6 class="vizDesc">{parse(VIZ_DESC)}</h6>
+                </Col>
+                <Col md={12} lg={12} xxl={8} className="pullRight">
+                  <ModeSwitcher mode={mode} />
+                  <Button
+                    id="previous"
+                    type="primary"
+                    onClick={() => this.changeVis(mode - 1)}
+                    disabled={mode === 0}
+                  >
+                    Previous
+                  </Button>
+                  <Button
+                    id="next"
+                    type="primary"
+                    onClick={() => this.changeVis(mode + 1)}
+                    disabled={mode >= MAX_HINTS - 1}
+                  >
+                    Next
+                  </Button>
                 </Col>
               </Row>
             </div>
-            <Divider />
-            <Row type="flex" justify="end">
-              <Col span={24} className="pullRight">
-                <ModeSwitcher />
-                <Button
-                  id="previous"
-                  type="primary"
-                  onClick={() => this.changeVis(mode - 1)}
-                  disabled={mode === 0}
-                >
-                  Previous
-                </Button>
-                <Button
-                  id="next"
-                  type="primary"
-                  onClick={() => this.changeVis(mode + 1)}
-                  disabled={mode >= MAX_HINTS - 1}
-                >
-                  Next
-                </Button>
-              </Col>
-            </Row>
             <div id="vizMain">
-              <Row type="flex" justify="space-between">
-                <Col span={16}>
-                  <Row>
-                    <Col span={24}>
-                      <VegaChart mode={mode} view={view} chartID={1} />
-                    </Col>
+              <Row type="flex" justify="start">
+                <Col md={12} lg={12} xxl={8}>
+                  <Row type="flex" justify="center">
+                    <VegaChart mode={mode} view={view} chartID={1} />
                   </Row>
-                  <Row>
-                    <Col span={24}>
-                      <VegaChart mode={mode} view={view} chartID={2} />
-                    </Col>
+                  <Row type="flex" justify="center">
+                    <VegaChart mode={mode} view={view} chartID={2} />
                   </Row>
-                  <Row>
-                    <Col span={24}>
-                      <VegaChart mode={mode} view={view} chartID={3} />
-                    </Col>
+                  <Row type="flex" justify="center">
+                    <VegaChart mode={mode} view={view} chartID={3} />
                   </Row>
                 </Col>
-                <Col span={8}>
+                <Col md={12} lg={12} xxl={8}>
                   <Legend mode={mode} view={view} cb={i => this.changeVis(i)} />
                 </Col>
               </Row>

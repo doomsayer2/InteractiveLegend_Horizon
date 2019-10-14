@@ -1,5 +1,5 @@
-# InteractiveLegend - Horizon
-This is just a clone of the original template which implements the horizon visualization.
+# InteractiveLegend - Barchart
+This is just a clone of the original template which implements the barchart visualization.
 <br/>
 Original: [Interactive Legend](https://github.com/doomsayer2/InteractiveLegend)
 

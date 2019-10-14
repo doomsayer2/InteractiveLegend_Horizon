@@ -12,8 +12,7 @@ const FinsihStudy = ({ mode }) => {
   });
 
   const onFinishTest = () => {
-    const lastLocation = document.referrer;
-    window.location.href = lastLocation;
+    window.close();
   };
 
   return (
@@ -30,15 +29,21 @@ const FinsihStudy = ({ mode }) => {
         </Col>
         <Col span={16}>
           <p style={{ fontStyle: 'italic' }}>
-            "If you are finished with exploring the visualization please click
-            the button below and go back to your survey if you are not
-            redirected automatically. <strong>Thank You!</strong>"
+            "If you had a good understanding of the bar chart, please return to
+            the survey window and close this window. <strong>Thank You!</strong>
+            "
           </p>
         </Col>
       </Row>
-      <Row type="flex" justify="start">
+      <Row type="flex" justify="start" style={{ marginBottom: 40 + 'px' }}>
         <Col span={4} push={20}>
-          <Button disabled={!enabled} type="primary" shape="round" block onClick={onFinishTest}>
+          <Button
+            disabled={!enabled}
+            type="primary"
+            shape="round"
+            block
+            onClick={onFinishTest}
+          >
             Done
           </Button>
         </Col>

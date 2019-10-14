@@ -23,6 +23,18 @@
     margin: 2% 0 2% 0;
 }
 
+#vizMain {
+    margin-bottom: 2%;
+}
+
+#vizHeader {
+    margin-bottom: 2%;
+}
+
+.vizDesc {
+    line-height: 1.5;
+}
+
 #next {
     min-width: 100px;
     margin-left: 1%;
@@ -38,7 +50,7 @@
     position: absolute;
     top: 0%;
     right: 90px;
-    max-width: 100px;
+    max-width: 110px;
 }
 
 #fhLogo {
@@ -83,7 +95,7 @@
 
 /* vega-tooltip library changes */
 td {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 }
 
 /* MOBILE STUFF - Just in case someone does this...*/
@@ -91,4 +103,8 @@ td {
     .ant-col {
         width: auto !important;
     }
+}
+
+.introText {
+    font-weight: bold;
 }
