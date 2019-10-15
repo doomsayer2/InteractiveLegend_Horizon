@@ -29,7 +29,7 @@ const FinsihStudy = ({ mode }) => {
         </Col>
         <Col span={16}>
           <p style={{ fontStyle: 'italic', marginTop: 6 + 'px' }}>
-            "If you had a good understanding of the bar chart, please return to
+            "If you had a good understanding of the horizon graphs, please return to
             the survey window and close this window. <strong>Thank You!</strong>
             "
           </p>
