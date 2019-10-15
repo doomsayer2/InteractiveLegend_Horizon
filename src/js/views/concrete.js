@@ -10,7 +10,7 @@ const TEXTS = {
   THREE:
     'Dark blue areas indicate a high <span class="hT">average temperature</span> (y-axis).',
   FOUR:
-    'A high <span class="hT">average temperature</span> in <span class="hT">Oslo</span> in <span class="ht">February</span> and <span class="hT">July</span>can be retrieved from the graph due to a dark colored area.',
+    'A high <span class="hT">average temperature</span> in <span class="hT">Oslo</span> in <span class="ht">February</span> and <span class="hT">July</span> can be retrieved from the graph due to a dark colored area.',
   FIVE:
     'Compared to the <span class="hT">other cities</span>, <span class="hT">Tallinn</span> shows a shorter period in the year when the temperatures are above 15°C.',
   SIX:

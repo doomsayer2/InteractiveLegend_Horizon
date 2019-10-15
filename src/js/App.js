@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    // manageHints(this.state.mode);
+    manageHints(this.state.mode);
   }
 
   /**
