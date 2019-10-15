@@ -139,6 +139,47 @@ const createHintThree = () => {
 };
 
 const createHintFour = () => {
+  const paths = d3.select(".vegaViz1 > svg").selectAll("path");
+  const xAxisText = d3
+    .select(".vegaViz1 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+  const feb = d3.select(xAxisText.nodes()[1]);
+  const july = d3.select(xAxisText.nodes()[6]);
+
+  const layer1 = d3.select(paths.nodes()[3]);
+  const layer1Box = layer1.node().getBBox();
+
+  feb
+    .style("fill", "#C51B7D")
+    .attr("font-weight", "bold")
+    .style("font-size", "15px");
+  july
+    .style("fill", "#C51B7D")
+    .attr("font-weight", "bold")
+    .style("font-size", "15px");
+
+  const hint4Group = d3
+    .select(".vegaViz1 > svg")
+    .select(".layer_1_marks")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  hint4Group
+    .append("circle")
+    .attr("r", 10)
+    .attr("cx", layer1Box.width / 2 + 20)
+    .attr("cy", layer1Box.height / 2 + 60)
+    .style("stroke", "#C51B7D")
+    .style("fill", "#C51B7D");
+  hint4Group
+    .append("text")
+    .attr("x", layer1Box.width / 2 + 20)
+    .attr("y", layer1Box.height / 2 + 67)
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .text("4");
+
   return 4;
 };
 
@@ -192,6 +233,18 @@ const removeAllHints = () => {
 
   layer1.attr("stroke", "none").attr("stroke-width", "0");
   layer2.attr("stroke", "none").attr("stroke-width", "0");
+
+  const feb = d3.select(xAxisText.nodes()[1]);
+  const july = d3.select(xAxisText.nodes()[6]);
+
+  feb
+    .style("fill", "rgb(0,0,0)")
+    .attr("font-weight", "normal")
+    .style("font-size", "10px");
+  july
+    .style("fill", "rgb(0,0,0)")
+    .attr("font-weight", "normal")
+    .style("font-size", "10px");
 };
 
 export {
