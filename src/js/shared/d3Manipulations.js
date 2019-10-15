@@ -184,6 +184,151 @@ const createHintFour = () => {
 };
 
 const createHintFive = () => {
+  const xAxisText = d3
+    .select(".vegaViz1 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+
+  const xAxisTextTallinn = d3
+    .select(".vegaViz2 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+
+  const xAxisTextMunich = d3
+    .select(".vegaViz3 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+
+  const april = d3.select(xAxisText.nodes()[3]).attr("transform");
+  const sept = d3.select(xAxisText.nodes()[8]).attr("transform");
+  let aprilBox = april
+    .substring(april.indexOf("(") + 1, april.indexOf(")"))
+    .split(",");
+  aprilBox = aprilBox.map(e => parseInt(e, 0));
+  let septBox = sept
+    .substring(sept.indexOf("(") + 1, sept.indexOf(")"))
+    .split(",");
+  septBox = septBox.map(e => parseInt(e, 0));
+
+  const june = d3.select(xAxisTextTallinn.nodes()[5]).attr("transform");
+  const sept2 = d3.select(xAxisTextTallinn.nodes()[8]).attr("transform");
+  let juneBox = june
+    .substring(june.indexOf("(") + 1, june.indexOf(")"))
+    .split(",");
+  juneBox = juneBox.map(e => parseInt(e, 0));
+  let sept2Box = sept2
+    .substring(sept2.indexOf("(") + 1, sept2.indexOf(")"))
+    .split(",");
+  sept2Box = sept2Box.map(e => parseInt(e, 0));
+
+  const april2 = d3.select(xAxisTextMunich.nodes()[3]).attr("transform");
+  const oct = d3.select(xAxisTextMunich.nodes()[9]).attr("transform");
+  let april2Box = april2
+    .substring(april2.indexOf("(") + 1, april2.indexOf(")"))
+    .split(",");
+  april2Box = april2Box.map(e => parseInt(e, 0));
+  let octBox = oct.substring(oct.indexOf("(") + 1, oct.indexOf(")")).split(",");
+  octBox = octBox.map(e => parseInt(e, 0));
+
+  const hint5Group = d3
+    .select(".vegaViz1 > svg")
+    .select(".role-axis-label")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  hint5Group
+    .append("line")
+    .attr("x1", aprilBox[0])
+    .attr("y1", aprilBox[1] - 20)
+    .attr("x2", septBox[0])
+    .attr("y2", septBox[1] - 20)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  hint5Group
+    .append("line")
+    .attr("x1", aprilBox[0])
+    .attr("y1", aprilBox[1] - 10)
+    .attr("x2", aprilBox[0])
+    .attr("y2", aprilBox[1] - 30)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  hint5Group
+    .append("line")
+    .attr("x1", septBox[0])
+    .attr("y1", septBox[1] - 10)
+    .attr("x2", septBox[0])
+    .attr("y2", septBox[1] - 30)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  const hint5aGroup = d3
+    .select(".vegaViz2 > svg")
+    .select(".role-axis-label")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  hint5aGroup
+    .append("line")
+    .attr("x1", juneBox[0])
+    .attr("y1", juneBox[1] - 20)
+    .attr("x2", sept2Box[0])
+    .attr("y2", sept2Box[1] - 20)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  hint5aGroup
+    .append("line")
+    .attr("x1", juneBox[0])
+    .attr("y1", juneBox[1] - 10)
+    .attr("x2", juneBox[0])
+    .attr("y2", juneBox[1] - 30)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  hint5aGroup
+    .append("line")
+    .attr("x1", sept2Box[0])
+    .attr("y1", sept2Box[1] - 10)
+    .attr("x2", sept2Box[0])
+    .attr("y2", sept2Box[1] - 30)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  const hint5bGroup = d3
+    .select(".vegaViz3 > svg")
+    .select(".role-axis-label")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  hint5bGroup
+    .append("line")
+    .attr("x1", april2Box[0])
+    .attr("y1", april2Box[1] - 20)
+    .attr("x2", octBox[0])
+    .attr("y2", octBox[1] - 20)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  hint5bGroup
+    .append("line")
+    .attr("x1", april2Box[0])
+    .attr("y1", april2Box[1] - 10)
+    .attr("x2", april2Box[0])
+    .attr("y2", april2Box[1] - 30)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
+  hint5bGroup
+    .append("line")
+    .attr("x1", octBox[0])
+    .attr("y1", octBox[1] - 10)
+    .attr("x2", octBox[0])
+    .attr("y2", octBox[1] - 30)
+    .attr("stroke", "#C51B7D")
+    .attr("stroke-width", 2);
+
   return 5;
 };
 
