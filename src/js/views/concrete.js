@@ -1,24 +1,25 @@
-const sourceData1 = require("./data/tempOslo.json"); // Oslo Chart data
-const sourceData2 = require("./data/tempTallinn.json"); // Tallinn Chart data
-const sourceData3 = require("./data/tempMunich.json"); // Munich Chart data
+const sourceData1 = require('./data/tempOslo.json'); // Oslo Chart data
+const sourceData2 = require('./data/tempTallinn.json'); // Tallinn Chart data
+const sourceData3 = require('./data/tempMunich.json'); // Munich Chart data
 
 const TEXTS = {
-  ONE: "Each bar represents a data item.",
+  ONE:
+    'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span> and <span class="hT">Munich</span> for a specific <span class="hT">month</span> (x-axis).',
   TWO:
-    'The height of each bar shows e.g., the <span class="hT">average temperature (y-axis)</span> in <span class="hT">Oslo</span> for a certain month.',
+    'Light blue areas indicate a low <span class="hT">average temperature</span> (y-axis).',
   THREE:
-    'The horizontal position of each bar represents the <span class="hT">month</span> (x-axis).',
+    'Dark blue areas indicate a high <span class="hT">average temperature</span> (y-axis).',
   FOUR:
-    'An average temperature of <span class="hT">-4 °C</span> was measured in <span class="hT">Oslo in February</span>.',
+    'A high <span class="hT">average temperature</span> in <span class="hT">Oslo</span> in <span class="ht">February</span> and <span class="hT">July</span>can be retrieved from the graph due to a dark colored area.',
   FIVE:
-    'The average temperature in <span class="hT">August</span> was higher in <span class="hT">Tallinn</span> than in <span class="hT">Oslo</span>.',
+    'Compared to the <span class="hT">other cities</span>, <span class="hT">Tallinn</span> shows a shorter period in the year when the temperatures are above 15°C.',
   SIX:
-    'In 2018, the average temperature in <span class="hT">February</span> was below 0°C in each of the three cities <span class="hT">Oslo, Munich, and Tallinn</span>.'
+    'In all three <span class="hT">cities</span>, <span class="hT">February</span> is the coldest month.'
 };
 
 const TEXTGROUPS = {
-  g1: "Reading",
-  g2: "Using"
+  g1: 'Reading',
+  g2: 'Using'
 };
 
 export class ConcreteDataProvider {
@@ -61,94 +62,430 @@ export class ConcreteDataProvider {
   constructor() {
     // Config for first chart -- here it is Oslo
     this.viz = {
-      mark: { type: "bar" },
-      spec: {
-        mark: { type: "bar" },
-        encoding: {
-          x: {
-            field: "date",
-            type: "ordinal",
-            axis: {
-              title: "Month",
-              labelAngle: 0
-            }
-          },
-          y: {
-            field: "temp",
-            type: "quantitative",
-            title: "Average temperature in °C"
-          },
-          color: {
-            value: "lightgrey"
-          }
-        },
-        title: "Average temperature in Oslo, Norway in 2018",
-        width: 400
-      },
       data: {
         values: sourceData1
+      },
+      spec: {
+        layer: [
+          {
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal',
+                scale: {
+                  zero: false,
+                  nice: false
+                },
+                axis: {
+                  title: 'Month',
+                  labelAngle: 0
+                }
+              },
+              y: {
+                field: 'temp',
+                type: 'quantitative',
+                scale: {
+                  domain: [-3, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.6
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          },
+          {
+            transform: [
+              {
+                calculate: 'datum.temp > 15 ? datum.temp - 15 : 0',
+                as: 'ny'
+              }
+            ],
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal',
+                axis: {
+                  title: 'Month'
+                }
+              },
+              y: {
+                field: 'ny',
+                type: 'quantitative',
+                scale: {
+                  domain: [-3, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.8
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          },
+          {
+            transform: [
+              {
+                calculate: 'datum.temp < -2 ? datum.temp + 2 : 0',
+                as: 'ny2'
+              }
+            ],
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal'
+              },
+              y: {
+                field: 'ny2',
+                type: 'quantitative',
+                scale: {
+                  domain: [-3, 15]
+                }
+              },
+              opacity: {
+                value: 0.8
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          }
+        ],
+        config: {
+          area: {
+            interpolate: 'monotone'
+          }
+        },
+        width: 500,
+        height: 120,
+        title: 'Average temperature in Oslo, Norway in 2018'
       }
     };
 
     // Config for the second chart -- here it is
     this.viz2 = {
-      mark: { type: "bar" },
-      spec: {
-        mark: { type: "bar" },
-        encoding: {
-          x: {
-            field: "date",
-            type: "ordinal",
-            axis: {
-              title: "Month",
-              labelAngle: 0
-            }
-          },
-          y: {
-            field: "temp",
-            type: "quantitative",
-            title: "Average temperature in °C"
-          }, 
-          color: {
-            value: "lightgrey"
-          }
-        },
-        title: "Average temperature in Tallinn, Estonia in 2018",
-        width: 400
-      },
       data: {
         values: sourceData2
+      },
+      spec: {
+        layer: [
+          {
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal',
+                scale: {
+                  zero: false,
+                  nice: false
+                },
+                axis: {
+                  title: 'Month',
+                  labelAngle: 0
+                }
+              },
+              y: {
+                field: 'temp',
+                type: 'quantitative',
+                scale: {
+                  domain: [-6, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.6
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          },
+          {
+            transform: [
+              {
+                calculate: 'datum.temp > 15 ? datum.temp - 15 : 0',
+                as: 'ny'
+              }
+            ],
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal',
+                axis: {
+                  title: 'Month'
+                }
+              },
+              y: {
+                field: 'ny',
+                type: 'quantitative',
+                scale: {
+                  domain: [-6, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.8
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          },
+          {
+            transform: [
+              {
+                calculate: 'datum.temp < -2 ? datum.temp + 2 : 0',
+                as: 'ny2'
+              }
+            ],
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal'
+              },
+              y: {
+                field: 'ny2',
+                type: 'quantitative',
+                scale: {
+                  domain: [-6, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.8
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          }
+        ],
+        config: {
+          area: {
+            interpolate: 'monotone'
+          }
+        },
+        width: 500,
+        height: 120,
+        title: 'Average temperature in Tallinn, Estonia in 2018'
       }
     };
 
     // Config for the third chart -- here it is
     this.viz3 = {
-      mark: { type: "bar" },
-      spec: {
-        mark: { type: "bar" },
-        encoding: {
-          x: {
-            field: "date",
-            type: "ordinal",
-            axis: {
-              title: "Month",
-              labelAngle: 0
-            }
-          },
-          y: {
-            field: "temp",
-            type: "quantitative",
-            title: "Average temperature in °C"
-          }, 
-          color: {
-            value: "lightgrey"
-          }
-        },
-        title: "Average temperature in Munich, Germany in 2018",
-        width: 400
-      },
       data: {
         values: sourceData3
+      },
+      spec: {
+        layer: [
+          {
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal',
+                scale: {
+                  zero: false,
+                  nice: false
+                },
+                axis: {
+                  title: 'Month',
+                  labelAngle: 0
+                }
+              },
+              y: {
+                field: 'temp',
+                type: 'quantitative',
+                scale: {
+                  domain: [-6, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.6
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          },
+          {
+            transform: [
+              {
+                calculate: 'datum.temp > 15 ? datum.temp - 15 : 0',
+                as: 'ny'
+              }
+            ],
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal',
+                axis: {
+                  title: 'Month'
+                }
+              },
+              y: {
+                field: 'ny',
+                type: 'quantitative',
+                scale: {
+                  domain: [-6, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.8
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          },
+          {
+            transform: [
+              {
+                calculate: 'datum.temp < -2 ? datum.temp + 2 : 0',
+                as: 'ny2'
+              }
+            ],
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal'
+              },
+              y: {
+                field: 'ny2',
+                type: 'quantitative',
+                scale: {
+                  domain: [-6, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value: 0.8
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          }
+        ],
+        config: {
+          area: {
+            interpolate: 'monotone'
+          }
+        },
+        width: 500,
+        height: 120,
+        title: 'Average temperature in Munich, Germany in 2018'
       }
     };
 
