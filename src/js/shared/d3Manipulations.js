@@ -329,6 +329,22 @@ const createHintFive = () => {
     .attr("stroke", "#C51B7D")
     .attr("stroke-width", 2);
 
+  hint5aGroup
+    .append("circle")
+    .attr("r", 10)
+    .attr("cx", sept2Box[0] + 23 )
+    .attr("cy", sept2Box[1] - 30)
+    .style("stroke", "#C51B7D")
+    .style("fill", "#C51B7D");
+
+  hint5aGroup
+    .append("text")
+    .attr("x", sept2Box[0] + 23 )
+    .attr("y", sept2Box[1] - 25 )
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .text("5");
+
   return 5;
 };
 
