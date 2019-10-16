@@ -332,15 +332,15 @@ const createHintFive = () => {
   hint5aGroup
     .append("circle")
     .attr("r", 10)
-    .attr("cx", sept2Box[0] + 23 )
+    .attr("cx", sept2Box[0] + 23)
     .attr("cy", sept2Box[1] - 30)
     .style("stroke", "#C51B7D")
     .style("fill", "#C51B7D");
 
   hint5aGroup
     .append("text")
-    .attr("x", sept2Box[0] + 23 )
-    .attr("y", sept2Box[1] - 25 )
+    .attr("x", sept2Box[0] + 23)
+    .attr("y", sept2Box[1] - 25)
     .attr("text-anchor", "middle")
     .attr("fill", "white")
     .text("5");
@@ -349,6 +349,126 @@ const createHintFive = () => {
 };
 
 const createHintSix = () => {
+  const xAxisText = d3
+    .select(".vegaViz1 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+
+  const feb = d3.select(xAxisText.nodes()[1]);
+  
+
+  feb
+    .style("fill", "#C51B7D")
+    .attr("font-weight", "bold")
+    .style("font-size", "15px");
+
+  const xAxisText2 = d3
+    .select(".vegaViz2 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+  const feb2 = d3.select(xAxisText2.nodes()[1]);
+
+  feb2
+    .style("fill", "#C51B7D")
+    .attr("font-weight", "bold")
+    .style("font-size", "15px");
+
+  const xAxisText3 = d3
+    .select(".vegaViz3 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+  const feb3 = d3.select(xAxisText3.nodes()[1]);
+
+  feb3
+    .style("fill", "#C51B7D")
+    .attr("font-weight", "bold")
+    .style("font-size", "15px");
+
+  const febTransform = feb.attr('transform');
+  const feb2Transform = feb2.attr('transform');
+  const feb3Transform = feb3.attr('transform');
+
+  let febBox = febTransform
+    .substring(febTransform.indexOf("(") + 1, febTransform.indexOf(")"))
+    .split(",");
+  febBox = febBox.map(e => parseInt(e, 0));
+
+  let feb2Box = feb2Transform
+    .substring(feb2Transform.indexOf("(") + 1, feb2Transform.indexOf(")"))
+    .split(",");
+  feb2Box = feb2Box.map(e => parseInt(e, 0));
+
+  let feb3Box = feb3Transform  
+    .substring(feb3Transform.indexOf("(") + 1, feb3Transform.indexOf(")"))
+    .split(",");
+  feb3Box = feb3Box.map(e => parseInt(e, 0));
+
+  const hint6aGroup = d3
+    .select(".vegaViz1 > svg")
+    .select(".role-axis-label")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  const hint6bGroup = d3
+    .select(".vegaViz2 > svg")
+    .select(".role-axis-label")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  const hint6cGroup = d3
+    .select(".vegaViz3 > svg")
+    .select(".role-axis-label")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  hint6aGroup
+    .append("circle")
+    .attr("r", 10)
+    .attr("cx", febBox[0])
+    .attr("cy", febBox[1] + 14)
+    .style("stroke", "#C51B7D")
+    .style("fill", "#C51B7D");
+
+  hint6aGroup
+    .append("text")
+    .attr("x", febBox[0])
+    .attr("y", febBox[1] + 19)
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .text("6");
+
+    hint6bGroup
+    .append("circle")
+    .attr("r", 10)
+    .attr("cx", feb2Box[0])
+    .attr("cy", feb2Box[1] + 14)
+    .style("stroke", "#C51B7D")
+    .style("fill", "#C51B7D");
+
+  hint6bGroup
+    .append("text")
+    .attr("x", feb2Box[0])
+    .attr("y", feb2Box[1] + 19)
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .text("6");
+
+    hint6cGroup
+    .append("circle")
+    .attr("r", 10)
+    .attr("cx", feb3Box[0])
+    .attr("cy", feb3Box[1] + 14)
+    .style("stroke", "#C51B7D")
+    .style("fill", "#C51B7D");
+
+  hint6cGroup
+    .append("text")
+    .attr("x", feb3Box[0])
+    .attr("y", feb3Box[1] + 19)
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .text("6");
+
   return 6;
 };
 
@@ -403,6 +523,29 @@ const removeAllHints = () => {
     .attr("font-weight", "normal")
     .style("font-size", "10px");
   july
+    .style("fill", "rgb(0,0,0)")
+    .attr("font-weight", "normal")
+    .style("font-size", "10px");
+
+  const xAxisText2 = d3
+    .select(".vegaViz2 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+  const feb2 = d3.select(xAxisText2.nodes()[1]);
+
+  feb2
+    .style("fill", "rgb(0,0,0)")
+    .attr("font-weight", "normal")
+    .style("font-size", "10px");
+
+  const xAxisText3 = d3
+    .select(".vegaViz3 > svg")
+    .select(".role-axis-label")
+    .selectAll("text");
+
+  const feb3 = d3.select(xAxisText3.nodes()[1]);
+
+  feb3
     .style("fill", "rgb(0,0,0)")
     .attr("font-weight", "normal")
     .style("font-size", "10px");
