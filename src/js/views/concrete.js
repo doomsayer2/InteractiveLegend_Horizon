@@ -4,15 +4,15 @@ const sourceData3 = require('./data/tempMunich.json'); // Munich Chart data
 
 const TEXTS = {
   ONE:
-    'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span> and <span class="hT">Munich</span> for a specific <span class="hT">month</span> (x-axis).',
+    'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span>, and <span class="hT">Munich</span> for a specific <span class="hT">over time</span> (x-axis).',
   TWO:
-    'Light blue areas indicate a low <span class="hT">average temperature</span> (y-axis).',
+    'Light grey areas indicate a low <span class="hT">average temperature</span> (y-axis).',
   THREE:
-    'Dark blue areas indicate a high <span class="hT">average temperature</span> (y-axis).',
+    'Dark grey areas indicate a high <span class="hT">average temperature</span> (y-axis).',
   FOUR:
-    'A high <span class="hT">average temperature</span> in <span class="hT">Oslo</span> in <span class="hT">February</span> and <span class="hT">July</span> can be retrieved from the graph due to a dark colored area.',
+    'In <span class="hT">Oslo</span>, a high <span class="hT">average temperature</span> can be retrieved from the visualization due to a dark colored area in <span class="hT">February</span> and <span class="hT">July</span>.',
   FIVE:
-    'Compared to the <span class="hT">other cities</span>, <span class="hT">Tallinn</span> shows a shorter period in the year when the temperatures are above 15°C.',
+    'Compared to the <span class="hT">other cities</span>, <span class="hT">Tallinn</span> shows a shorter period of time in the year with temperatures above 15°C.',
   SIX:
     'In all three <span class="hT">cities</span>, <span class="hT">February</span> is the coldest month.'
 };
@@ -71,9 +71,10 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',
+              color: 'lightgrey'
             },
-            encoding: {
+            encoding: {                
               x: {
                 field: 'date',
                 type: 'ordinal',
@@ -88,49 +89,6 @@ export class ConcreteDataProvider {
               },
               y: {
                 field: 'temp',
-                type: 'quantitative',
-                scale: {
-                  domain: [-3, 15]
-                },
-                axis: {
-                  title: 'Average temperature in °C'
-                }
-              },
-              opacity: {
-                value: 0.6
-              },
-              tooltip: [
-                { field: 'date', type: 'ordinal', title: 'Month' },
-                {
-                  field: 'temp',
-                  type: 'quantitative',
-                  title: 'Average temperature in °C'
-                }
-              ]
-            }
-          },
-          {
-            transform: [
-              {
-                calculate: 'datum.temp > 15 ? datum.temp - 15 : 0',
-                as: 'ny'
-              }
-            ],
-            mark: {
-              type: 'area',
-              clip: true,
-              orient: 'vertical'
-            },
-            encoding: {
-              x: {
-                field: 'date',
-                type: 'ordinal',
-                axis: {
-                  title: 'Month'
-                }
-              },
-              y: {
-                field: 'ny',
                 type: 'quantitative',
                 scale: {
                   domain: [-3, 15]
@@ -155,6 +113,50 @@ export class ConcreteDataProvider {
           {
             transform: [
               {
+                calculate: 'datum.temp > 15 ? datum.temp - 15 : 0',
+                as: 'ny'
+              }
+            ],
+            mark: {
+              type: 'area',
+              clip: true,
+              orient: 'vertical',    
+              color: 'grey'
+            },
+            encoding: {
+              x: {
+                field: 'date',
+                type: 'ordinal',
+                axis: {
+                  title: 'Month'
+                }
+              },
+              y: {
+                field: 'ny',
+                type: 'quantitative',
+                scale: {
+                  domain: [-3, 15]
+                },
+                axis: {
+                  title: 'Average temperature in °C'
+                }
+              },
+              opacity: {
+                value:  0.8
+              },
+              tooltip: [
+                { field: 'date', type: 'ordinal', title: 'Month' },
+                {
+                  field: 'temp',
+                  type: 'quantitative',
+                  title: 'Average temperature in °C'
+                }
+              ]
+            }
+          },
+          {
+            transform: [
+              {
                 calculate: 'datum.temp < -2 ? datum.temp + 2 : 0',
                 as: 'ny2'
               }
@@ -162,7 +164,8 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',    
+              color: 'grey'
             },
             encoding: {
               x: {
@@ -212,7 +215,8 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',
+              color: 'lightgrey'
             },
             encoding: {
               x: {
@@ -238,7 +242,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.6
+                value: 0.8
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -260,7 +264,8 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',
+              color:'grey'
             },
             encoding: {
               x: {
@@ -303,7 +308,8 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',
+              color: 'grey'
             },
             encoding: {
               x: {
@@ -356,7 +362,8 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',
+              color: 'lightgrey'
             },
             encoding: {
               x: {
@@ -382,7 +389,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.6
+                value: 0.8
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -404,7 +411,8 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',
+              color: 'grey'
             },
             encoding: {
               x: {
@@ -447,7 +455,8 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical'
+              orient: 'vertical',
+              color: 'grey'
             },
             encoding: {
               x: {

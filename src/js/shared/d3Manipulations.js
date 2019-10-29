@@ -151,11 +151,13 @@ const createHintFour = () => {
   feb
     .style('fill', '#C51B7D')
     .attr('font-weight', 'bold')
-    .style('font-size', '15px');
+    .style('font-size', '15px')
+    .attr('dy', '3');
   july
     .style('fill', '#C51B7D')
     .attr('font-weight', 'bold')
-    .style('font-size', '15px');
+    .style('font-size', '15px')
+    .attr('dy', '3');
 
   const hint4Group = d3
     .select('.vegaViz1 > svg')
@@ -357,7 +359,8 @@ const createHintSix = () => {
   feb
     .style('fill', '#C51B7D')
     .attr('font-weight', 'bold')
-    .style('font-size', '15px');
+    .style('font-size', '15px')
+    .attr('dy', '3');
 
   const xAxisText2 = d3
     .select('.vegaViz2 > svg')
@@ -368,7 +371,8 @@ const createHintSix = () => {
   feb2
     .style('fill', '#C51B7D')
     .attr('font-weight', 'bold')
-    .style('font-size', '15px');
+    .style('font-size', '15px')
+    .attr('dy', '3');
 
   const xAxisText3 = d3
     .select('.vegaViz3 > svg')
@@ -379,7 +383,8 @@ const createHintSix = () => {
   feb3
     .style('fill', '#C51B7D')
     .attr('font-weight', 'bold')
-    .style('font-size', '15px');
+    .style('font-size', '15px')
+    .attr('dy', '3');
 
   const febTransform = feb.attr('transform');
   const feb2Transform = feb2.attr('transform');
@@ -421,14 +426,14 @@ const createHintSix = () => {
   hint6aGroup
     .append('circle')
     .attr('r', 10)
-    .attr('cx', febBox[0])
+    .attr('cx', febBox[0] + 17)
     .attr('cy', febBox[1] + 14)
     .style('stroke', '#C51B7D')
     .style('fill', '#C51B7D');
 
   hint6aGroup
     .append('text')
-    .attr('x', febBox[0])
+    .attr('x', febBox[0] + 17)
     .attr('y', febBox[1] + 19)
     .attr('text-anchor', 'middle')
     .attr('fill', 'white')
@@ -437,14 +442,14 @@ const createHintSix = () => {
   hint6bGroup
     .append('circle')
     .attr('r', 10)
-    .attr('cx', feb2Box[0])
+    .attr('cx', feb2Box[0] + 17)
     .attr('cy', feb2Box[1] + 14)
     .style('stroke', '#C51B7D')
     .style('fill', '#C51B7D');
 
   hint6bGroup
     .append('text')
-    .attr('x', feb2Box[0])
+    .attr('x', feb2Box[0]+17)
     .attr('y', feb2Box[1] + 19)
     .attr('text-anchor', 'middle')
     .attr('fill', 'white')
@@ -453,14 +458,14 @@ const createHintSix = () => {
   hint6cGroup
     .append('circle')
     .attr('r', 10)
-    .attr('cx', feb3Box[0])
+    .attr('cx', feb3Box[0]+17)
     .attr('cy', feb3Box[1] + 14)
     .style('stroke', '#C51B7D')
     .style('fill', '#C51B7D');
 
   hint6cGroup
     .append('text')
-    .attr('x', feb3Box[0])
+    .attr('x', feb3Box[0]+17)
     .attr('y', feb3Box[1] + 19)
     .attr('text-anchor', 'middle')
     .attr('fill', 'white')
