@@ -68,13 +68,19 @@ export class ConcreteDataProvider {
       spec: {
         layer: [
           {
+            transform: [
+              {
+                calculate: 'datum.temp < 0 ? (datum.temp * -1) : datum.temp',
+                as: 'ny0'
+              }
+            ],
             mark: {
               type: 'area',
               clip: true,
               orient: 'vertical',
               color: 'lightgrey'
             },
-            encoding: {                
+            encoding: {
               x: {
                 field: 'date',
                 type: 'ordinal',
@@ -88,7 +94,7 @@ export class ConcreteDataProvider {
                 }
               },
               y: {
-                field: 'temp',
+                field: 'ny0',
                 type: 'quantitative',
                 scale: {
                   domain: [-3, 15]
@@ -120,7 +126,7 @@ export class ConcreteDataProvider {
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical',    
+              orient: 'vertical',
               color: 'grey'
             },
             encoding: {
@@ -142,7 +148,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value:  0.8
+                value: 0.8
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -157,14 +163,14 @@ export class ConcreteDataProvider {
           {
             transform: [
               {
-                calculate: 'datum.temp < -2 ? datum.temp + 2 : 0',
+                calculate: 'datum.temp < 0 ? (datum.temp * -1) : 0',
                 as: 'ny2'
               }
             ],
             mark: {
               type: 'area',
               clip: true,
-              orient: 'vertical',    
+              orient: 'vertical',
               color: 'grey'
             },
             encoding: {
@@ -212,6 +218,12 @@ export class ConcreteDataProvider {
       spec: {
         layer: [
           {
+            "transform": [
+              {
+                "calculate": "datum.temp < 0 ? (datum.temp * -1) : datum.temp",
+                "as": "ny0"
+              }
+            ],
             mark: {
               type: 'area',
               clip: true,
@@ -232,7 +244,7 @@ export class ConcreteDataProvider {
                 }
               },
               y: {
-                field: 'temp',
+                field: 'ny0',
                 type: 'quantitative',
                 scale: {
                   domain: [-6, 15]
@@ -265,7 +277,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color:'grey'
+              color: 'grey'
             },
             encoding: {
               x: {
@@ -301,7 +313,7 @@ export class ConcreteDataProvider {
           {
             transform: [
               {
-                calculate: 'datum.temp < -2 ? datum.temp + 2 : 0',
+                calculate: 'datum.temp < 0 ? (datum.temp * -1) : 0',
                 as: 'ny2'
               }
             ],
@@ -359,6 +371,12 @@ export class ConcreteDataProvider {
       spec: {
         layer: [
           {
+            "transform": [
+              {
+                "calculate": "datum.temp < 0 ? (datum.temp * -1) : datum.temp",
+                "as": "ny0"
+              }
+            ],
             mark: {
               type: 'area',
               clip: true,
@@ -379,7 +397,7 @@ export class ConcreteDataProvider {
                 }
               },
               y: {
-                field: 'temp',
+                field: 'ny0',
                 type: 'quantitative',
                 scale: {
                   domain: [-6, 15]
@@ -448,7 +466,7 @@ export class ConcreteDataProvider {
           {
             transform: [
               {
-                calculate: 'datum.temp < -2 ? datum.temp + 2 : 0',
+                calculate: 'datum.temp < 0 ? (datum.temp * -1) : 0',
                 as: 'ny2'
               }
             ],

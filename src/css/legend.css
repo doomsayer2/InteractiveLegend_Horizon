@@ -34,14 +34,7 @@
 /* Other */
 #reading,
 #using {
-  border: 1px solid #595959;
-  padding: 2%;
-  margin-bottom: 10px;
-}
-
-#reading2,
-#using2 {
-  border: 1px solid #595959;
+  border: 1px solid lightgrey;
   padding: 2%;
   margin-bottom: 10px;
 }
