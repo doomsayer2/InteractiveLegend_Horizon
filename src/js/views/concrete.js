@@ -79,7 +79,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC6D10'              
+              color: '#146F06'              
             },
             encoding: {
               x: {
@@ -129,7 +129,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC6D10'
+              color: '#146F06'
             },
             encoding: {
               x: {
@@ -232,7 +232,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC6D10'
+              color: '#146F06'
             },
             encoding: {
               x: {
@@ -282,7 +282,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC6D10'
+              color: '#146F06'
             },
             encoding: {
               x: {
@@ -388,7 +388,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC6D10'
+              color: '#146F06'
             },
             encoding: {
               x: {
@@ -437,7 +437,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC6D10'
+              color: '#146F06'
             },
             encoding: {
               x: {
