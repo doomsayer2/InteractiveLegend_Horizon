@@ -6,7 +6,7 @@ const TEXTS = {
   ONE:
     'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span>, and <span class="hT">Munich</span> <span class="hT">over time</span> (x-axis).',
   TWO:
-    'Light grey areas indicate a low <span class="hT">average temperature</span> (y-axis).',
+    'Light red areas indicate a low <span class="hT">average temperature</span> (y-axis).',
   THREE:
     'Dark grey areas indicate a high <span class="hT">average temperature</span> (y-axis).',
   FOUR:
@@ -78,8 +78,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85',
-              opacity: 1
+              color: '#EC6D10'              
             },
             encoding: {
               x: {
@@ -128,7 +127,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#EC6D10'
             },
             encoding: {
               x: {
@@ -172,7 +171,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC1010'
+              color: '#003A85'
             },
             encoding: {
               x: {
@@ -229,7 +228,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#EC6D10'
             },
             encoding: {
               x: {
@@ -278,7 +277,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#EC6D10'
             },
             encoding: {
               x: {
@@ -322,7 +321,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC1010'
+              color: '#003A85'
             },
             encoding: {
               x: {
@@ -382,7 +381,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#EC6D10'
             },
             encoding: {
               x: {
@@ -431,7 +430,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#EC6D10'
             },
             encoding: {
               x: {
@@ -475,7 +474,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#EC1010'
+              color: '#003A85'
             },
             encoding: {
               x: {
