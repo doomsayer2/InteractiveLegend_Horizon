@@ -11,7 +11,7 @@ const TEXTS = {
     'Dark blue areas indicate a very low negative <span class="hT">average temperature</span> (y-axis).',
 
   FOUR:
-    'In <span class="hT">Oslo</span>, a high positive <span class="hT">average temperature</span> can be retrieved from the visualization due to a dark orange colored area in <span class="hT">July</span>.',
+    'In <span class="hT">Oslo</span>, a high positive <span class="hT">average temperature</span> can be retrieved from the visualization due to a dark green colored area in <span class="hT">July</span>.',
   FIVE:
     'Compared to the <span class="hT">other cities</span>, <span class="hT">Tallinn</span> shows a shorter period of time in the year with temperatures above 15°C.',
   SIX:
