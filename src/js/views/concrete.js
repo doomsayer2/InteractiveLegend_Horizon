@@ -6,9 +6,9 @@ const TEXTS = {
   ONE:
     'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span>, and <span class="hT">Munich</span> <span class="hT">over time</span> (x-axis).',
   TWO:
-    'Light orange areas indicate a moderate positive <span class="hT">average temperature</span> (y-axis).',
+    'Light green areas indicate a moderate positive <span class="hT">average temperature</span> and dark green areas a high positive <span class="hT">average temperature</span> (y-axis).',
   THREE:
-    'Dark orange areas indicate a high postive <span class="hT">average temperature</span> (y-axis).  Dark blue areas indicate a low negative <span class="hT">average temperature</span> (y-axis).',
+    'Dark blue areas indicate a very low negative <span class="hT">average temperature</span> (y-axis).',
 
   FOUR:
     'In <span class="hT">Oslo</span>, a high positive <span class="hT">average temperature</span> can be retrieved from the visualization due to a dark orange colored area in <span class="hT">July</span>.',
