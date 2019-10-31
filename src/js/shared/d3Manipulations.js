@@ -106,6 +106,13 @@ const createHintTwo = () => {
     .append("g")
     .classed("customD3Hints", true);
 
+  const hint2Group2 = d3
+    .select(".vegaViz1 > svg")
+    .select(".layer_1_marks")
+    .append("g")
+    .classed("customD3Hints", true);
+
+  /**light green area */
   hint2Group
     .append("circle")
     .attr("r", 10)
@@ -121,7 +128,22 @@ const createHintTwo = () => {
     .attr("fill", "white")
     .text("2");
 
-  layer0.attr("stroke", "#C51B7D").attr("stroke-width", "2");
+  /**Dark green area */
+  hint2Group2
+    .append("circle")
+    .attr("r", 10)
+    .attr("cx", layer0Box.width / 2 + 30)
+    .attr("cy", layer0Box.height / 2 + 10)
+    .style("stroke", "#C51B7D")
+    .style("fill", "#C51B7D");
+
+  hint2Group2
+    .append("text")
+    .attr("x", layer0Box.width / 2 + 30)
+    .attr("y", layer0Box.height / 2 + 15)
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .text("2");
 
   return 2;
 };
@@ -129,32 +151,48 @@ const createHintTwo = () => {
 const createHintThree = () => {
   const paths = d3.select(".vegaViz1 > svg").selectAll("path");
   const layer1 = d3.select(paths.nodes()[3]);
-  const layer2 = d3.select(paths.nodes()[4]); // Areas below the 0 line
+  //const layer2 = d3.select(paths.nodes()[4]); // Areas below the 0 line
   const layer1Box = layer1.node().getBBox();
 
   const hint3Group = d3
     .select(".vegaViz1 > svg")
-    .select(".layer_1_marks")
+    .select(".layer_2_marks")
     .append("g")
     .classed("customD3Hints", true);
 
   hint3Group
     .append("circle")
     .attr("r", 10)
-    .attr("cx", layer1Box.width / 2 + 40)
-    .attr("cy", layer1Box.height / 2 + 50)
+    .attr("cx", layer1Box.width + 5)
+    .attr("cy", layer1Box.height + 30)
     .style("stroke", "#C51B7D")
     .style("fill", "#C51B7D");
   hint3Group
     .append("text")
-    .attr("x", layer1Box.width / 2 + 40)
-    .attr("y", layer1Box.height / 2 + 56)
+    .attr("x", layer1Box.width + 5)
+    .attr("y", layer1Box.height + 36)
     .attr("text-anchor", "middle")
     .attr("fill", "white")
     .text("3");
 
-  layer1.attr("stroke", "#C51B7D").attr("stroke-width", "2");
-  layer2.attr("stroke", "#C51B7D").attr("stroke-width", "2");
+  /**Left blue area */
+  hint3Group
+    .append("circle")
+    .attr("r", 10)
+    .attr("cx", 55 )
+    .attr("cy", layer1Box.height + 30)
+    .style("stroke", "#C51B7D")
+    .style("fill", "#C51B7D");
+  hint3Group
+    .append("text")
+    .attr("x", 55)
+    .attr("y", layer1Box.height + 36)
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .text("3");
+
+  //layer1.attr("stroke", "#C51B7D").attr("stroke-width", "2");
+  //layer2.attr("stroke", "#C51B7D").attr("stroke-width", "2");
 
   /**Highlight y-Axis and text */
   const xAxisText = d3.select(".vegaViz1 > svg").select(".role-axis-title");
@@ -188,13 +226,12 @@ const createHintFour = () => {
     .select(".vegaViz1 > svg")
     .select(".role-axis-label")
     .selectAll("text");
-  
+
   const july = d3.select(xAxisText.nodes()[6]);
 
   const layer1 = d3.select(paths.nodes()[3]);
   const layer1Box = layer1.node().getBBox();
 
-  
   july
     .style("fill", "#C51B7D")
     .attr("font-weight", "bold")
