@@ -188,17 +188,13 @@ const createHintFour = () => {
     .select(".vegaViz1 > svg")
     .select(".role-axis-label")
     .selectAll("text");
-  const feb = d3.select(xAxisText.nodes()[1]);
+  
   const july = d3.select(xAxisText.nodes()[6]);
 
   const layer1 = d3.select(paths.nodes()[3]);
   const layer1Box = layer1.node().getBBox();
 
-  feb
-    .style("fill", "#C51B7D")
-    .attr("font-weight", "bold")
-    .style("font-size", "15px")
-    .attr("dy", "3");
+  
   july
     .style("fill", "#C51B7D")
     .attr("font-weight", "bold")

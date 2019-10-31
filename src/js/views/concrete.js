@@ -101,7 +101,8 @@ export class ConcreteDataProvider {
                   domain: [-3, 15]
                 },
                 axis: {
-                  title: 'Average temperature in °C'
+                  title: 'Average temperature in °C',
+                  tickCount: 5  
                 }
               },
               opacity: {
@@ -145,7 +146,9 @@ export class ConcreteDataProvider {
                   domain: [-3, 15]
                 },
                 axis: {
-                  title: 'Average temperature in °C'
+                  title: 'Average temperature in °C', 
+                  tickCount: 5  
+                  
                 }
               },
               opacity: {
@@ -251,7 +254,8 @@ export class ConcreteDataProvider {
                   domain: [-6, 15]
                 },
                 axis: {
-                  title: 'Average temperature in °C'
+                  title: 'Average temperature in °C', 
+                  tickCount: 5          
                 }
               },
               opacity: {
@@ -295,7 +299,8 @@ export class ConcreteDataProvider {
                   domain: [-6, 15]
                 },
                 axis: {
-                  title: 'Average temperature in °C'
+                  title: 'Average temperature in °C',
+                  tickCount: 5  
                 }
               },
               opacity: {
@@ -336,7 +341,8 @@ export class ConcreteDataProvider {
                   domain: [-6, 15]
                 },
                 axis: {
-                  title: 'Average temperature in °C'
+                  title: 'Average temperature in °C', 
+                  tickCount: 5  
                 }
               },
               opacity: {
@@ -448,7 +454,8 @@ export class ConcreteDataProvider {
                   domain: [-6, 15]
                 },
                 axis: {
-                  title: 'Average temperature in °C'
+                  title: 'Average temperature in °C', 
+                  tickCount: 5  
                 }
               },
               opacity: {
