@@ -4,7 +4,7 @@ const sourceData3 = require('./data/tempMunich.json'); // Munich Chart data
 
 const TEXTS = {
   ONE:
-    'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span>, and <span class="hT">Munich</span> for a specific <span class="hT">over time</span> (x-axis).',
+    'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span>, and <span class="hT">Munich</span> <span class="hT">over time</span> (x-axis).',
   TWO:
     'Light grey areas indicate a low <span class="hT">average temperature</span> (y-axis).',
   THREE:
@@ -78,7 +78,8 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'lightgrey'
+              color: '#003A85',
+              opacity: 1
             },
             encoding: {
               x: {
@@ -104,7 +105,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 0.6
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -127,7 +128,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'grey'
+              color: '#003A85'
             },
             encoding: {
               x: {
@@ -148,7 +149,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 1
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -171,7 +172,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'grey'
+              color: '#EC1010'
             },
             encoding: {
               x: {
@@ -228,7 +229,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'lightgrey'
+              color: '#003A85'
             },
             encoding: {
               x: {
@@ -254,7 +255,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 0.6
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -277,7 +278,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'grey'
+              color: '#003A85'
             },
             encoding: {
               x: {
@@ -298,7 +299,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 1
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -321,7 +322,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'grey'
+              color: '#EC1010'
             },
             encoding: {
               x: {
@@ -381,7 +382,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'lightgrey'
+              color: '#003A85'
             },
             encoding: {
               x: {
@@ -407,7 +408,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 0.6
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -430,7 +431,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'grey'
+              color: '#003A85'
             },
             encoding: {
               x: {
@@ -451,7 +452,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 1
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -474,7 +475,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: 'grey'
+              color: '#EC1010'
             },
             encoding: {
               x: {
