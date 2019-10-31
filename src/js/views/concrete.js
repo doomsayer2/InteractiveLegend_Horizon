@@ -6,11 +6,12 @@ const TEXTS = {
   ONE:
     'The areas illustrate the progress of <span class="hT">average temperature</span> (y-axis) in <span class="hT">Oslo</span>, <span class="hT">Tallinn</span>, and <span class="hT">Munich</span> <span class="hT">over time</span> (x-axis).',
   TWO:
-    'Light red areas indicate a low <span class="hT">average temperature</span> (y-axis).',
+    'Light orange areas indicate a moderate positive <span class="hT">average temperature</span> (y-axis).',
   THREE:
-    'Dark grey areas indicate a high <span class="hT">average temperature</span> (y-axis).',
+    'Dark orange areas indicate a high postive <span class="hT">average temperature</span> (y-axis).  Dark blue areas indicate a low negative <span class="hT">average temperature</span> (y-axis).',
+
   FOUR:
-    'In <span class="hT">Oslo</span>, a high <span class="hT">average temperature</span> can be retrieved from the visualization due to a dark colored area in <span class="hT">February</span> and <span class="hT">July</span>.',
+    'In <span class="hT">Oslo</span>, a high positive <span class="hT">average temperature</span> can be retrieved from the visualization due to a dark orange colored area in <span class="hT">July</span>.',
   FIVE:
     'Compared to the <span class="hT">other cities</span>, <span class="hT">Tallinn</span> shows a shorter period of time in the year with temperatures above 15°C.',
   SIX:
