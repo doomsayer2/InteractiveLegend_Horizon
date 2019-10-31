@@ -79,7 +79,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#146F06'              
+              color: '#a1d76a'              
             },
             encoding: {
               x: {
@@ -129,7 +129,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#146F06'
+              color: '#a1d76a'
             },
             encoding: {
               x: {
@@ -175,7 +175,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#0571b0'
             },
             encoding: {
               x: {
@@ -190,7 +190,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 1
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -232,7 +232,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#146F06'
+              color: '#a1d76a'
             },
             encoding: {
               x: {
@@ -282,7 +282,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#146F06'
+              color: '#a1d76a'
             },
             encoding: {
               x: {
@@ -327,7 +327,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#0571b0'
             },
             encoding: {
               x: {
@@ -346,7 +346,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 1
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
@@ -388,7 +388,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#146F06'
+              color: '#a1d76a'
             },
             encoding: {
               x: {
@@ -437,7 +437,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#146F06'
+              color: '#a1d76a'
             },
             encoding: {
               x: {
@@ -482,7 +482,7 @@ export class ConcreteDataProvider {
               type: 'area',
               clip: true,
               orient: 'vertical',
-              color: '#003A85'
+              color: '#0571b0'
             },
             encoding: {
               x: {
@@ -500,7 +500,7 @@ export class ConcreteDataProvider {
                 }
               },
               opacity: {
-                value: 0.8
+                value: 1
               },
               tooltip: [
                 { field: 'date', type: 'ordinal', title: 'Month' },
