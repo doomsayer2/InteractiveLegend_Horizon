@@ -132,14 +132,14 @@ const createHintTwo = () => {
   hint2Group2
     .append("circle")
     .attr("r", 10)
-    .attr("cx", layer0Box.width / 2 + 30)
+    .attr("cx", layer0Box.width / 2 + 50)
     .attr("cy", layer0Box.height / 2 + 10)
     .style("stroke", "#C51B7D")
     .style("fill", "#C51B7D");
 
   hint2Group2
     .append("text")
-    .attr("x", layer0Box.width / 2 + 30)
+    .attr("x", layer0Box.width / 2 + 50)
     .attr("y", layer0Box.height / 2 + 15)
     .attr("text-anchor", "middle")
     .attr("fill", "white")
