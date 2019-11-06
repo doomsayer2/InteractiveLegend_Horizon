@@ -78,9 +78,9 @@ const createHintTwo = () => {
   const layer0 = d3.select(paths.nodes()[2]);
   const layer0Box = layer0.node().getBBox();
 
-  const xAxisText = d3.select(".vegaViz1 > svg").select(".role-axis-title");
-  const text = xAxisText.node().getBBox();
-  const xAxis = d3.select(".vegaViz1 > svg").select(".role-axis-domain");
+  // const xAxisText = d3.select(".vegaViz1 > svg").select(".role-axis-title");
+  // const text = xAxisText.node().getBBox();
+  // const xAxis = d3.select(".vegaViz1 > svg").select(".role-axis-domain");
 
   const yAxis = d3
     .select(".vegaViz1 > svg")
@@ -195,9 +195,9 @@ const createHintThree = () => {
   //layer2.attr("stroke", "#C51B7D").attr("stroke-width", "2");
 
   /**Highlight y-Axis and text */
-  const xAxisText = d3.select(".vegaViz1 > svg").select(".role-axis-title");
-  const text = xAxisText.node().getBBox();
-  const xAxis = d3.select(".vegaViz1 > svg").select(".role-axis-domain");
+  // const xAxisText = d3.select(".vegaViz1 > svg").select(".role-axis-title");
+  // const text = xAxisText.node().getBBox();
+  // const xAxis = d3.select(".vegaViz1 > svg").select(".role-axis-domain");
 
   const yAxis = d3
     .select(".vegaViz1 > svg")
